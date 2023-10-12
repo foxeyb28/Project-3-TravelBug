@@ -4,24 +4,31 @@ const typeDefs = gql`
   type User {
     _id: ID!
     name: String!
+    email: String
+    savedTrips: [Trips]
   }
 
-  type trips {
-    _id: ID!
-    trips1: String!
-    trips2: String!
-    trips1_votes: Int
-    trips2_votes: Int
+  type Trips {
+    tripId: ID!
+   title: String!
+   description: String
+  }
+
+  input TripInput {
+    tripId: String!
+    title: String
+    description: String
   }
 
   type Query {
-    trips: [trips]
-    matchups(_id: String): [Matchup]
+    me: User
   }
 
   type Mutation {
-    createMatchup(trips11: String!, trips2: String!): Matchup
-    createVote(_id: String!, tripsNum: Int!): Matchup
+    # addUser(username: String!, email: String!, password: String!): Auth
+        # login(email: String!, password: String!): Auth
+        saveTrip(tripData: TripInput!): User
+        removeTrip(tripId: ID!): User
   }
 `;
 
