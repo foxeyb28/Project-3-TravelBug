@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String!
   }
 
-  type Trips {
+  type trips {
     _id: ID!
     trips1: String!
     trips2: String!
@@ -15,7 +15,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    trip: [Trips]
+    trips: [trips]
     matchups(_id: String): [Matchup]
   }
 
