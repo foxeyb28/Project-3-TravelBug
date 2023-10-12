@@ -1,10 +1,10 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const tripSchema = new Schema({
+const tripschema = new Schema({
     title: {
         type: String,
         required: true,
-        // maybe validate length requirement?
+        // Add validation here if needed
     },
     location: {
         type: String,
@@ -16,19 +16,17 @@ const tripSchema = new Schema({
         type: Date,
     },
     description: {
-        type: String, 
-        required: false, 
+        type: String,
+        required: false,
     },
     guests: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
 },
-    { timestamps: true }
+{ timestamps: true }
 );
 
+const trips = model('trips', tripschema);
 
-
-const Trip = model ('Trip', tripSchema);
-
-module.exports = Trips;
+module.exports = trips;
