@@ -27,6 +27,6 @@ const tripschema = new Schema({
 { timestamps: true }
 );
 
-const trips = model('trips', tripschema);
+const Trips = model('Trips', tripschema);
 
-module.exports = trips;
+module.exports = Trips;
