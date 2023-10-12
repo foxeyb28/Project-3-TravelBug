@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const tripschema = new Schema({
+const tripSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -27,6 +27,6 @@ const tripschema = new Schema({
 { timestamps: true }
 );
 
-const trips = model('trips', tripschema);
+const Trips = model('Trips', tripSchema);
 
-module.exports = trips;
+module.exports = Trips;
