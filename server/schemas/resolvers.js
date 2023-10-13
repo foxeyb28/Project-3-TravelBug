@@ -1,19 +1,22 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Trips} = require('../models');
+const { User, Trips } = require('../models');
 const { signToken } = require('../utils/auth');
+const { getTripAdvisorData } = require('./tripAdvisorApi');
 
 const resolvers = {
   Query: {
-      me: async (parent, args, context) => {
-          if (context.user) {
-              const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
-              return userData;
-          }
-          throw new AuthenticationError('You need to be logged in!');
-      },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
+        return userData;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    tripAdvisorData: async (parent, args, context) => {
+      const data = await getTripAdvisorData();
+      return data;
+    },
   },
-
-  Mutation: {
 //     login: async (parent, { email, password }) => {
 //       const user = await User.findOne({ email });
 
@@ -58,8 +61,7 @@ const resolvers = {
           }
           throw new AuthenticationError('You need to be logged in!');
       },
-  },
-};
+  };
 
 
 
