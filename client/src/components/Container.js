@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavTabs from './Navtabs';
 import Home from './pages/Home';
 import PlacesToGo from './pages/PlacesToGo';
-import Resteraunts from './pages/Resteraunts';
+import Restaurants  from './pages/Restaurants ';
 import Attractions from './pages/Attractions';
 
 export default function Container() {
@@ -19,8 +19,8 @@ export default function Container() {
     if (currentPage === 'PlacesToGo') {
       return <PlacesToGo />;
     }
-    if (currentPage === 'Resteraunts') {
-        return <Resteraunts />;
+    if (currentPage === 'Restaurants ') {
+        return <Restaurants  />;
     }
   };
 
