@@ -17,27 +17,31 @@ const resolvers = {
       return data;
     },
   },
-//     login: async (parent, { email, password }) => {
-//       const user = await User.findOne({ email });
+t user = await User.findOne({ email });
 
-//       if (!user) {
-//           throw new AuthenticationError('No user found with this e-mail address');
-//       }
-//       const correctPw = await user.isCorrectPassword(password);
+  Mutation: {
+    loginUser: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
-//       if(!correctPw) {
-//           throw new AuthenticationError('Incorrect Password!');
-//       }
-//       const token = signToken(user);
-//       return { token, user };
-//   },
 
-//   addUser: async (parent, args) => {
-//       const user = await User.create(args);
-//       const token = signToken(user);
+      if (!user) {
+          throw new AuthenticationError('No user found with this e-mail address');
+      }
+      const correctPw = await user.isCorrectPassword(password);
 
-//       return { token, user };
-//   },
+      if(!correctPw) {
+          throw new AuthenticationError('Incorrect Password!');
+      }
+      const token = signToken(user);
+      return { token, user };
+  },
+
+  addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+  },
 
   saveTrip: async (parent, { tripData }, context) => {
       if (context.user) { 
