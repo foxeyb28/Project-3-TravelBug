@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const searchLocation = '<REQUIRED>';
+const searchLocation = 'Chicago';
 
 const getLocationId = async () => {
   const locationSearchUrl = `https://travel-advisor.p.rapidapi.com/locations/search?query=${searchLocation}&limit=30&offset=0&units=km&currency=USD&sort=relevance&lang=en_US`;
