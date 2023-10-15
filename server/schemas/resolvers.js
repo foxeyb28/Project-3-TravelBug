@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Trips } = require('../models');
 const { signToken } = require('../utils/auth');
-const { getTravelAdvisorData } = require('./travelAdvisorApi');
+const { getTravelAdvisorData } = require('./');
 
 const resolvers = {
   Query: {
