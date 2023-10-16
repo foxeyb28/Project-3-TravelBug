@@ -11,7 +11,7 @@ const getRestaurants = async (locationId) => {
 
   try {
     const restaurantResponse = await fetch(restaurantUrl, restaurantOptions);
-    return await restaurantResponse.text();
+    return await restaurantResponse.json();
   } catch (error) {
     throw error;
   }

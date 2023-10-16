@@ -18,7 +18,8 @@ const getLocationId = async (searchLocation) => {
     if (locationResult.data && locationResult.data.length > 0) {
       return locationResult.data[0].result_object.location_id;
     } else {
-      throw new Error('No data results found for the given location.');
+      // throw new Error('No data results found for the given location.');
+      return ''
     }
   } catch (error) {
     throw error;

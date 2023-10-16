@@ -1,15 +1,16 @@
 import React from 'react';
 
-export default function Restaurants({ handleChange, handleSearch, cityName }) {
+export default function Restaurants({ restaurant }) {
+  console.log(restaurant)
   return (
     <div>
       <h2>Local Restaurants</h2>
-      <input value={cityName} name='cityName' onChange={handleChange} />
-      <button onClick={handleSearch}>Search</button>
-      <p>
-        Local Restaurants you should check out
-      </p>
+      <p>Local Restaurants you should check out:</p>
+      <ul>
+        {restaurant.map((restaurant) => (
+          <li key={restaurant.id}>{restaurant.name}</li>
+        ))}
+      </ul>
     </div>
-
-      );
+  );
 }
