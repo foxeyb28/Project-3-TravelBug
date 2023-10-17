@@ -17,12 +17,16 @@ const userSchema = new Schema(
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
         password: {
-            type: String, 
+            type: String,
             required: true,
-            savedTrips: true,
-        },
-    }
-);
+          },
+          saveTrips: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Trips', 
+            },
+          ],
+        });
 
 // // hash user password
 // userSchema.pre('save', async function (next) {
