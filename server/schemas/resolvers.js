@@ -12,7 +12,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    travelAdvisorData: async (parent, args, context) => {
+    travelAdvisorData: async (parent, args, context, info) => {
       const data = await getTravelAdvisorData();
       return data;
     },
@@ -27,7 +27,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect Password!');
+        throw AuthenticationError('Incorrect Password!');
       }
       const token = signToken(user);
       return { token, user };

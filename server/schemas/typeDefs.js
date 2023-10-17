@@ -22,10 +22,12 @@ const typeDefs = gql`
 type Auth {
   token: String!
   user: User
+  travelAdvisorData: TravelAdvisorData
 }
-  type Query {
-    me: User
-  }
+
+// type TravelAdvisorData {
+//   # Define fields for the TravelAdvisorData type here
+// }
 
  type Mutation {
       addUser(username: String!, email: String!, password: String!): Auth
