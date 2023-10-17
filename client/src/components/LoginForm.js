@@ -45,7 +45,7 @@ const LoginForm = () => {
                 id="email"
                 type="text"
                 className="validate"
-                placeholder="Your email"
+                // placeholder="Your email"
                 name="email"
                 onChange={handleInputChange}
                 value={userFormData.email}
@@ -59,7 +59,7 @@ const LoginForm = () => {
                 id="password"
                 type="password"
                 className="validate"
-                placeholder="Your password"
+                // placeholder="Your password"
                 name="password"
                 onChange={handleInputChange}
                 value={userFormData.password}
