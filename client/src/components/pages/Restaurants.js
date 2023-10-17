@@ -6,6 +6,7 @@ export default function Restaurants({ restaurant }) {
     <div>
       <h2>Local Restaurants</h2>
       <p>Local Restaurants you should check out:</p>
+      
       <ul>
         {restaurant.map((restaurant) => (
           <li key={restaurant.id}>{restaurant.name}</li>
