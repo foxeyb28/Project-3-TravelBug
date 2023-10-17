@@ -7,7 +7,8 @@ const userSchema = new Schema(
         username: {
             type: String, 
             required: true, 
-            unique: true,
+            unique: true,            
+
         },
         email: {
             type: String, 
@@ -16,11 +17,16 @@ const userSchema = new Schema(
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
         password: {
-            type: String, 
+            type: String,
             required: true,
-        },
-    }
-);
+          },
+          saveTrip: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Trips', 
+            },
+          ],
+        });
 
 // // hash user password
 // userSchema.pre('save', async function (next) {
