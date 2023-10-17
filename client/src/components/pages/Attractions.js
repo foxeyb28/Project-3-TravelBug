@@ -1,13 +1,17 @@
 import React from 'react';
 
-export default function Attractions() {
+export default function Attractions({ attractions }) {
+  console.log(attractions)
   return (
-    <section class="grid-item" id="About">
-            <h2>Local Attractions</h2>
-                <p>
-                Local Attractions you should check out
+    <div>
+      <h2>Local Attractions</h2>
+      <p>Local Attractions you should check out:</p>
 
-                </p>
-        </section>
+      <ul>
+        {attractions.map((attraction) => (
+          <li key={attraction.id}>{attraction.name}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
