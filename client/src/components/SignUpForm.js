@@ -11,7 +11,7 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // Handle form submission as you did before
+    // Handle form submission 
 
     setUserFormData({
       username: '',

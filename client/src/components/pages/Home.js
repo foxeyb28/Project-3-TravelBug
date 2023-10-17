@@ -38,7 +38,7 @@ export default function Home({ handleChange, handleSearch, cityName }) {
             onClick={handleSearch}
           >
             Search
-            <i className="material-icons right"></i> {/* Changed the icon to 'search' */}
+            <i className="material-icons right"></i>
           </button>
           
         </div>

@@ -11,7 +11,6 @@ function NavTabs({ currentPage, handlePageChange }) {
             <img src={logo} alt="Logo" style={{ width: '200px', height: 'auto' }} />
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>{/* Add content for the right side of the navigation bar */}</li>
             <li>
               <a href="#attractions" onClick={() => handlePageChange('Attractions')}>
                 Attractions
