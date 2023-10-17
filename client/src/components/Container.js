@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavTabs from './Navtabs';
 import Home from './pages/Home';
-import PlacesToGo from './pages/PlacesToGo';
+// import PlacesToGo from './pages/PlacesToGo';
 import getLocationId from '../utils/api/LocationSearch';
 import getRestaurants from '../utils/api/RestaurantSearch';
 import getAttractions from '../utils/api/Attractions';

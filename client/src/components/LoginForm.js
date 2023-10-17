@@ -1,13 +1,16 @@
+// see SignupForm.js for comments
 import React, { useState } from 'react';
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-
-import { loginUser } from '../utils/API.js';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [showAlert, setShowAlert] = useState(false);
+
+  const [loginUser, {error}] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,14 +21,8 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await loginUser(userFormData);
-
-      if (!response.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const { token, user } = await response.json();
-      Auth.login(token);
+      const { data } = await loginUser({ variables: userFormData });
+      Auth.login(data.loginUser.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

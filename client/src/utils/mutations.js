@@ -47,7 +47,7 @@ mutation removeTrip($tripId: String!) {
         _id
         username
         email
-        savedTrip {
+        savedTrips {
             tripId
             title
             description
