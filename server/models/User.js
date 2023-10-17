@@ -20,7 +20,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
           },
-          saveTrips: [
+          saveTrip: [
             {
               type: Schema.Types.ObjectId,
               ref: 'Trips', 
