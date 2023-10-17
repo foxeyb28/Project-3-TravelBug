@@ -1,67 +1,45 @@
 import React from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
+import logo from './pages/images/logo1.png';
 
-// Here we are using object destructuring assignment to pluck off our variables from the props object
-// We assign them to their own variable names
 function NavTabs({ currentPage, handlePageChange }) {
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <a
-          href="#home"
-          onClick={() => handlePageChange('Home')}
-          // This is a conditional (ternary) operator that checks to see if the current page is "Home"
-          // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
-          className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
-        >
-          Home
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#attractions"
-          onClick={() => handlePageChange('Attractions')}
-          className={currentPage === 'Attractions' ? 'nav-link active' : 'nav-link'}
-        >
-          Attractions
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#placestogo"
-          onClick={() => handlePageChange('PlacesToGo')}
-          className={currentPage === 'PlacesToGo' ? 'nav-link active' : 'nav-link'}
-        >
-          Places to Visit
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#Restaurants "
-          onClick={() => handlePageChange('Restaurants')}
-          className={currentPage === 'Restaurants ' ? 'nav-link active' : 'nav-link'}
-        >
-          Restaurants
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#Login"
-          onClick={() => handlePageChange('Login')}
-          className={currentPage === 'Login' ? 'nav-link active' : 'nav-link'}
-        >
-          Login
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          href="#SignUp"
-          onClick={() => handlePageChange('SignUp')}
-          className={currentPage === 'SignUp' ? 'nav-link active' : 'nav-link'}
-        >
-          Sign Up
-        </a>
-      </li>
-    </ul>
+    <div className="wrapper">
+      <nav>
+        <div className="nav-wrapper">
+          <a href="#home" onClick={() => handlePageChange('Home')}>
+            <img src={logo} alt="Logo" style={{ width: '200px', height: 'auto' }} />
+          </a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li>
+              <a href="#attractions" onClick={() => handlePageChange('Attractions')}>
+                Attractions
+              </a>
+            </li>
+            <li>
+              <a href="#placestogo" onClick={() => handlePageChange('PlacesToGo')}>
+                Places to Visit
+              </a>
+            </li>
+            <li>
+              <a href="#Restaurants" onClick={() => handlePageChange('Restaurants')}>
+                Restaurants
+              </a>
+            </li>
+            <li>
+              <a href="#Login" onClick={() => handlePageChange('Login')}>
+                Login
+              </a>
+            </li>
+            <li>
+              <a href="#SignUp" onClick={() => handlePageChange('SignUp')}>
+                Sign Up
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 }
 
