@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Trips } = require('../models');
 const { signToken } = require('../utils/auth');
-const { getTravelAdvisorData } = require('../schemas');
 
 const resolvers = {
   Query: {
@@ -12,10 +11,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    travelAdvisorData: async (parent, args, context) => {
-      const data = await getTravelAdvisorData();
-      return data;
-    },
+  
   },
   Mutation: {
     loginUser: async (parent, { email, password }) => {
