@@ -1,7 +1,8 @@
 import React from 'react';
+import AttractionsCard from '../AttractionsCard'; 
 
 export default function Attractions({ attractions }) {
-  console.log(attractions)
+  console.log(attractions);
   return (
     <div>
       <h2>Local Attractions</h2>
@@ -9,7 +10,10 @@ export default function Attractions({ attractions }) {
 
       <ul>
         {attractions.map((attraction) => (
-          <li key={attraction.id}>{attraction.name}</li>
+          <li key={attraction.id}>
+            {attraction.name}
+            <AttractionsCard attraction={attraction} /> {/* Render AttractionCard */}
+          </li>
         ))}
       </ul>
     </div>

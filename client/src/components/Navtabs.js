@@ -34,6 +34,11 @@ function NavTabs({ currentPage, handlePageChange }) {
               </a>
             </li>
             <li>
+            <a href="#MyTrips" onClick={() => handlePageChange('MyTrips')}>
+                My Trips
+              </a>
+            </li>
+            <li>
               <a href="#Login" onClick={() => handlePageChange('Login')}>
                 Login
               </a>
