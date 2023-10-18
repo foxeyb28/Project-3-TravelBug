@@ -30,11 +30,12 @@ export const SAVE_TRIP = gql`
 mutation saveTrip($tripData: TripInput!) {
     saveTrip(tripData: $tripData) {
             _id
-            username
             email
             savedTrips {
                 tripId
                 title
+                start
+                end
                 description
             }
     }

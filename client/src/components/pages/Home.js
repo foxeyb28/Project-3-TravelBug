@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import M from 'materialize-css';
+import TripForm from '../TripForm';
 
 export default function Home({ handleChange, handleSearch, cityName }) {
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function Home({ handleChange, handleSearch, cityName }) {
           
         </div>
       </div>
+      <TripForm></TripForm>
     </div>
   );
 }
