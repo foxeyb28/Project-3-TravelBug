@@ -1,8 +1,15 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import logo from './pages/images/logo1.png';
-
+import Auth from '../utils/auth';
+ 
 function NavTabs({ currentPage, handlePageChange }) {
+  const handleLogout = function(){
+    
+      Auth.logout();
+      handlePageChange('Login')
+  
+  };
   return (
     <div className="wrapper">
       <nav>
@@ -27,8 +34,18 @@ function NavTabs({ currentPage, handlePageChange }) {
               </a>
             </li>
             <li>
+            <a href="#MyTrips" onClick={() => handlePageChange('MyTrips')}>
+                My Trips
+              </a>
+            </li>
+            <li>
               <a href="#Login" onClick={() => handlePageChange('Login')}>
                 Login
+              </a>
+            </li>
+            <li>
+              <a href="#Logout" onClick={() => handleLogout()}>
+                Logout
               </a>
             </li>
             <li>

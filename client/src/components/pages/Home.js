@@ -6,6 +6,7 @@ import TripForm from '../TripForm';
 export default function Home({ handleChange, handleSearch, cityName, user }) {
   const [userData, setUserData] = useState(null);
 
+
   useEffect(() => {
     M.AutoInit();
     try {
@@ -70,6 +71,7 @@ export default function Home({ handleChange, handleSearch, cityName, user }) {
         </div>
       </div>
       <TripForm /> 
+
     </div>
   );
 }
