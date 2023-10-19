@@ -2,11 +2,24 @@ import React, { useEffect } from 'react';
 import M from 'materialize-css';
 import TripForm from '../TripForm';
 
+import Button from "@mui/material/Button";
+import ModalDialog from '../ModalDialog';
+
 export default function Home({ handleChange, handleSearch, cityName }) {
   useEffect(() => {
     M.AutoInit();
   }, []);
 
+
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className="container">
       <div className="row">
@@ -44,7 +57,8 @@ export default function Home({ handleChange, handleSearch, cityName }) {
           
         </div>
       </div>
-      <TripForm></TripForm>
+      <Button varian="contained" color="primary" onClick={handleOpen}>Add a Trip</Button>
+      <ModalDialog maxScreen={true} fullWidth={true} open={open} handleClose={handleClose} />
     </div>
   );
 }
