@@ -1,4 +1,4 @@
-import React from "react";
+iimport React from "react";
 import MyCardComponent from "./Card"; // Import your card component
 import 'materialize-css/dist/css/materialize.min.css'; 
 import React, { useRef } from 'react';
