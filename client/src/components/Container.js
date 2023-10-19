@@ -43,6 +43,7 @@ export default function Container() {
       })
       getAttractions(data).then(attractionsData=>{
         setAttractions(attractionsData.data)
+        console.log(attractionsData)
       })
     })
   }; 

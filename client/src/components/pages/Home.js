@@ -1,13 +1,21 @@
-import React, { useEffect } from 'react';
-import M from 'materialize-css';
-import TripForm from '../TripForm';
-
+import React, { useEffect, useState } from 'react';
+import M from 'materialize-css'; 
+import auth from '../../utils/auth';
+import TripForm from '../TripForm'; 
 import Button from "@mui/material/Button";
 import ModalDialog from '../ModalDialog';
 
-export default function Home({ handleChange, handleSearch, cityName }) {
+export default function Home({ handleChange, handleSearch, cityName, user }) {
+  const [userData, setUserData] = useState(null);
+
   useEffect(() => {
     M.AutoInit();
+    try {
+      console.log(auth.getProfile());
+    } catch (e) {
+      console.error("OH NO", e);
+    }
+
   }, []);
 
 
@@ -20,14 +28,32 @@ export default function Home({ handleChange, handleSearch, cityName }) {
   const handleClose = () => {
     setOpen(false);
   };
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col s12">
+ 
+  const renderPersonalizedContent = () => {
+    if (userData) {
+      return (
+        <div>
+          <h1>Welcome, {userData.username}!</h1>
+          {userData.preferences === 'traveler' ? (
+            <p>Explore amazing destinations</p>
+          ) : (
+            <p>Discover local gems near you</p>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div>
           <h1>Welcome to Travel Bug</h1>
           <p>Your Adventure Awaits</p>
         </div>
-      </div>
+      );
+    }
+  };
+
+  return (
+    <div className="container">
+      {renderPersonalizedContent()}
 
       <div className="row">
         <div className="input-field col s12">
@@ -54,11 +80,12 @@ export default function Home({ handleChange, handleSearch, cityName }) {
             Search
             <i className="material-icons right"></i>
           </button>
-          
         </div>
       </div>
-      <Button varian="contained" color="primary" onClick={handleOpen}>Add a Trip</Button>
-      <ModalDialog maxScreen={true} fullWidth={true} open={open} handleClose={handleClose} />
+      {/* <Button varian="contained" color="primary" onClick={handleOpen}>Add a Trip</Button>
+      <ModalDialog maxScreen={true} fullWidth={true} open={open} handleClose={handleClose} /> */}
+      <TripForm /> 
+
     </div>
   );
 }

@@ -23,14 +23,19 @@ function NavTabs({ currentPage, handlePageChange }) {
                 Attractions
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#placestogo" onClick={() => handlePageChange('PlacesToGo')}>
                 Places to Visit
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#Restaurants" onClick={() => handlePageChange('Restaurants')}>
                 Restaurants
+              </a>
+            </li>
+            <li>
+            <a href="#MyTrips" onClick={() => handlePageChange('MyTrips')}>
+                My Trips
               </a>
             </li>
             <li>
