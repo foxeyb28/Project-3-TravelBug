@@ -9,10 +9,9 @@ export default function Attractions({ attractions }) {
       <p>Local Attractions you should check out:</p>
 
       <ul>
-        {attractions.map((attraction) => (
+        {attractions.map((attraction, index) => (
           <li key={attraction.id}>
-            {attraction.name}
-            <AttractionsCard attraction={attraction} /> {/* Render AttractionCard */}
+            {index<5? <AttractionsCard attraction={attraction} />:''} 
           </li>
         ))}
       </ul>

@@ -5,7 +5,7 @@ function AttractionsCard({ attraction }) {
   const [imageUrl, setImageUrl] = useState(null);
   
   // Function to fetch the image based on location ID
-  const fetchRestaurantImage = async (locationId) => {
+  const fetchAttractionImage = async (locationId) => {
     try {
       const apiUrl = `https://travel-advisor.p.rapidapi.com/attractions/list?location_id=${locationId}&currency=USD&lang=en_US&lunit=km&sort=recommended`;
 
@@ -34,21 +34,21 @@ function AttractionsCard({ attraction }) {
 
   useEffect(() => {
     // Fetch the image when the component mounts
-    fetchRestaurantImage(attraction.location_id);
+    fetchAttractionImage(attraction.location_id);
   }, [attraction.location_id]);
 
   return (
-    <div className="card">
-      <div className="card-image waves-effect waves-block waves-light">
+    <div className="card row">
+      <div className="card-image waves-effect waves-block waves-light col s3">
         {imageUrl ? (
-          <img className="activator" src={imageUrl} alt={attraction.name} />
+          <img className="activator responsive-img" src={imageUrl} alt={attraction.name} />
         ) : (
           <div className="loader">Loading...</div>
         )}
       </div>
       <div className="card-content">
         <span className="card-title activator grey-text text-darken-4">
-          {attraction.name}<i className="material-icons right">more_vert</i>
+          {attraction.name}<i className="material-icons right"></i>
         </span>
       </div>
       <div className="card-reveal">
