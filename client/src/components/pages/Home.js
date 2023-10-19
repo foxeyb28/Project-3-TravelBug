@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import M from 'materialize-css'; 
 import auth from '../../utils/auth';
 import TripForm from '../TripForm'; 
+import Button from "@mui/material/Button";
+import ModalDialog from '../ModalDialog';
 
 export default function Home({ handleChange, handleSearch, cityName, user }) {
   const [userData, setUserData] = useState(null);
-
 
   useEffect(() => {
     M.AutoInit();
@@ -17,6 +18,17 @@ export default function Home({ handleChange, handleSearch, cityName, user }) {
 
   }, []);
 
+
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+ 
   const renderPersonalizedContent = () => {
     if (userData) {
       return (
@@ -70,6 +82,8 @@ export default function Home({ handleChange, handleSearch, cityName, user }) {
           </button>
         </div>
       </div>
+      {/* <Button varian="contained" color="primary" onClick={handleOpen}>Add a Trip</Button>
+      <ModalDialog maxScreen={true} fullWidth={true} open={open} handleClose={handleClose} /> */}
       <TripForm /> 
 
     </div>
