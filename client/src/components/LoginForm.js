@@ -21,7 +21,8 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await loginUser({ variables: userFormData });
+      const { data } = await loginUser({ variables: { email: userFormData.email, password: userFormData.password } });
+      console.log(data);
       Auth.login(data.loginUser.token);
     } catch (err) {
       console.error(err);
@@ -37,7 +38,7 @@ const LoginForm = () => {
   return (
     <div className="container" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div className="row">
-        <form className="col s12 m8 offset-m2">
+        <form className="col s12 m8 offset-m2" onSubmit={handleFormSubmit}>
           <div className="card-panel" style={{ padding: '20px', borderRadius: '10px' }}>
             <h4>Login</h4>
             <div className="input-field">
