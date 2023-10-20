@@ -23,7 +23,7 @@ And Enjoy
 ## Usage
 To find the github link, click [here](https://github.com/foxeyb28/Project-3-TravelBug).
 
-To find the deployed Heroku link, click [here](https://travelbug-6245922857e9.herokuapp.com)
+To find the deployed Heroku link, click [here](https://travelbug1019-4a974414870c.herokuapp.com/)
 
 
 ## Screenshot
