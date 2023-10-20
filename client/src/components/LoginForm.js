@@ -19,10 +19,10 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+console.log(userFormData);
     try {
       const { data } = await loginUser({ variables: { email: userFormData.email, password: userFormData.password } });
-      console.log(data);
+      console.log(data, "data");
       Auth.login(data.loginUser.token);
     } catch (err) {
       console.error(err);
