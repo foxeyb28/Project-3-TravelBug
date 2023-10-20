@@ -6,6 +6,10 @@ import getAttractions from "./utils/api/Attractions";
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 
+import Button from "@mui/material/Button";
+import ModalDialog from './components/ModalDialog';
+
+
  // Adds messages only in a dev environment
   loadDevMessages();
   loadErrorMessages();
@@ -16,6 +20,8 @@ import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
   });
 
 function App() {
+
+  
     return (
  <ApolloProvider client={client}>
     <Container></Container>

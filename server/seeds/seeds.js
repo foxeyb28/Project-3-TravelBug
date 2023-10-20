@@ -1,18 +1,20 @@
-const db = require('./config/connection');
-const { User, Trips } = require('./models');
+const db = require('../config/connection');
+const { User, Trips } = require('../models');
 db.once('open', async () => {
   try {
     await User.deleteMany({});
     await Trips.deleteMany({});
-    const users = await User.insertMany([
+    const users = await User.create([
       {
         username: 'user1',
-        email: 'user1@example.com',
+        email: 'user1@example.com', 
+        password: 'String',
         savedTrips: [],
       },
       {
         username: 'user2',
         email: 'user2@example.com',
+        password: 'String2',
         savedTrips: [],
       },
     ]);

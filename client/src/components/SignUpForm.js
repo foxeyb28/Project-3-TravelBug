@@ -97,7 +97,7 @@ const SignUpForm = () => {
             </div>
             <div className="card-action center-align">
               <button
-                className="btn waves-effect waves-light"
+                className="btn waves-effect waves-light" onClick={handleFormSubmit}
                 type="submit"
                 style={{ display: 'block', width: '100%' }}
               >
