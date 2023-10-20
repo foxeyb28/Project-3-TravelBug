@@ -11,12 +11,12 @@ db.once('open', async () => {
         password: 'String',
         savedTrips: [],
       },
-      // {
-      //   username: 'user2',
-      //   email: 'user2@example.com',
-      //   password: 'String2',
-      //   savedTrips: [],
-      // },
+      {
+        username: 'user2',
+        email: 'user2@example.com',
+        password: 'String2',
+        savedTrips: [],
+      },
     ]);
     const trips = await Trips.insertMany([
       {
