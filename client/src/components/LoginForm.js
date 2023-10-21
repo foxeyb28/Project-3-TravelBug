@@ -1,4 +1,3 @@
-// see SignupForm.js for comments
 import React, { useState } from 'react';
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -10,7 +9,7 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [showAlert, setShowAlert] = useState(false);
 
-  const [loginUser, {error}] = useMutation(LOGIN_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,7 +20,9 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await loginUser({ variables: { email: userFormData.email, password: userFormData.password } });
+      const { data } = await loginUser({
+        variables: { email: userFormData.email, password: userFormData.password },
+      });
       console.log(data);
       Auth.login(data.loginUser.token);
     } catch (err) {
@@ -46,11 +47,11 @@ const LoginForm = () => {
                 id="email"
                 type="text"
                 className="validate"
-                // placeholder="Your email"
                 name="email"
                 onChange={handleInputChange}
                 value={userFormData.email}
                 required
+                autoComplete="username" // Autocomplete hint for username or email
               />
               <label htmlFor="email">Email</label>
             </div>
@@ -60,11 +61,11 @@ const LoginForm = () => {
                 id="password"
                 type="password"
                 className="validate"
-                // placeholder="Your password"
                 name="password"
                 onChange={handleInputChange}
                 value={userFormData.password}
                 required
+                autoComplete="current-password" // Autocomplete hint for password
               />
               <label htmlFor="password">Password</label>
             </div>
