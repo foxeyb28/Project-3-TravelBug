@@ -7,7 +7,7 @@ import getRestaurants from '../utils/api/RestaurantSearch';
 import getAttractions from '../utils/api/Attractions';
 import Restaurants  from './pages/Restaurants';
 import Attractions from './pages/Attractions';
-import MainComponent from './MainComponent';
+//import MainComponent from './MainComponent';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 

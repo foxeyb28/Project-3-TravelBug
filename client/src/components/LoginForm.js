@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -8,6 +7,7 @@ import Auth from '../utils/auth';
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [showAlert, setShowAlert] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
@@ -23,11 +23,15 @@ const LoginForm = () => {
       const { data } = await loginUser({
         variables: { email: userFormData.email, password: userFormData.password },
       });
-      console.log(data);
-      Auth.login(data.loginUser.token);
+
+      if (data.loginUser) {
+        Auth.login(data.loginUser.token);
+        setSuccessMessage('Login successful');
+      }
     } catch (err) {
      // console.error(err);
       setShowAlert(true);
+      setSuccessMessage('');
     }
 
     setUserFormData({
@@ -88,6 +92,18 @@ const LoginForm = () => {
             <div className="card red darken-1">
               <div className="card-content white-text">
                 Something went wrong with your login credentials!
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {successMessage && (
+        <div className="row">
+          <div className="col s12">
+            <div className="card green lighten-1">
+              <div className="card-content white-text">
+                {successMessage}
               </div>
             </div>
           </div>
