@@ -13,7 +13,7 @@ export default function Home({ handleChange, handleSearch, cityName, user }) {
     try {
       console.log(auth.getProfile());
     } catch (e) {
-      console.error("OH NO", e);
+     // console.error("OH NO");
     }
 
   }, []);
