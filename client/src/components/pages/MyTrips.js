@@ -1,20 +1,19 @@
 import React from "react";
 import MyCardComponent from "./Card"; // Import your card component
 import 'materialize-css/dist/css/materialize.min.css'; 
+import { useQuery } from "@apollo/client"; // Import useQuery from Apollo Client
 import QUERY_ME from "../../utils/queries";
-import useQuery from "@apollo/client";
-import AttractionsCard from "../AttractionsCard";
-import RestaurantCard from "../RestaurantCard";
 
 function MyTrips() {
   const { loading, data } = useQuery(QUERY_ME);
-  const MyTrips = data?.tech || [];
-  console.log(data);
-    return (
+
+  const myTrips = data?.myTrips || [];
+
+  return (
     <div>
       <h1>My Trips</h1>
       
-      {trips.map((trip) => (
+      {myTrips.map((trip) => (
         <MyCardComponent key={trip.id} trip={trip} />
       ))}
     </div>
